@@ -1,0 +1,67 @@
+#{extends 'main.html' /}
+#{set title:'T.V.K. Blog page' /}
+
+<div id="latest-post" class="wide-post">
+	#{if post.id}
+	<!-- start latest post -->
+	    #{display-post post:post, as:'full' /}
+	<!-- end latest post -->
+</div>
+<hr>
+<div id="comment-form" class="wide-comment">
+	<h1 class="title"><a href="#">Post a comment</a></h1>
+	
+	<div class="entry">
+	#{form @Blog.postComment(post.id)}
+	    <p>
+		    #{ifErrors}
+	        <p class="error">
+		    #{if params.author == ""}
+	            The author field is required!<br />
+			#{/if}
+	        </p>
+		    #{/ifErrors}
+	        <label for="author">Your name: </label>
+	        <input type="text" name="author" id="author"  value="${params.author}" />
+	    </p>
+	    <p>
+		    #{ifErrors}
+	        <p class="error">
+		    #{if params.content == ""}
+	            The message field is required!<br />
+			#{/if}
+	        </p>
+		    #{/ifErrors}
+	        <label for="content">Your message: </label>
+	        <textarea name="content" id="content">${params.content}</textarea>
+	    </p>
+	    <p>
+	        <input type="submit" value="Submit your comment" />
+	    </p>
+	#{/form}
+	#{/if}
+	
+	#{else}
+	    <div class="empty">
+	        There is currently nothing to read here.
+	    </div>
+	#{/else}
+	</div>
+	
+   	<div class="bottom"></div>
+	
+</div>
+<script type="text/javascript" charset="utf-8">
+    $(function() {         
+        // Expose the form 
+        $('form').click(function() { 
+            $('form').expose({api: true}).load(); 
+        }); 
+        
+        // If there is an error, focus to form
+        if($('form .error').size()) {
+            $('form').expose({api: true, loadSpeed: 0}).load(); 
+            $('form input[type=text]').get(0).focus();
+        }
+    });
+</script>

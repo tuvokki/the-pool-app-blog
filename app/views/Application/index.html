@@ -1,30 +1,19 @@
 #{extends 'main.html' /}
-#{set title:'T.V.K. Home' /}
- 
-<!-- start latest post -->
+#{set title:'T.V.K. Pool page' /}
+
 <div id="latest-post" class="wide-post">
-  <h1 class="title"><a href="#">The pool page</a></h1>
 
-	<div class="entry">
-    
-    <img src="@{'/public/images/pool.png'}" alt="" width="114" height="114" class="left" />
-    <p>
-	A fullfledged, Elo-based ratingsystem for the GX Public pool competition will be here!<br />
-	The <strong>Elo</strong> rating system is a method for calculating the relative skill levels of players in two-player games such as chess. It is named after its creator Arpad Elo, a Hungarian-born American physics professor.<br />
-	Arpad Elo was a master-level chess player and an active participant in the United States Chess Federation (USCF) from its founding in 1939.[2] The USCF used a numerical ratings system, devised by Kenneth Harkness, to allow members to track their individual progress in terms other than tournament wins and losses. The Harkness system was reasonably fair, but in some circumstances gave rise to ratings which many observers considered inaccurate. On behalf of the USCF, Elo devised a new system with a more statistical basis.<br />
-	Elo's system replaced earlier systems of competitive rewards with a system based on statistical estimation. Rating systems for many sports award points in accordance with subjective evaluations of the 'greatness' of certain achievements. For example, winning an important golf tournament might be worth an arbitrarily chosen five times as many points as winning a lesser tournament.<br />
-	A statistical endeavor, by contrast, uses a model that relates the game results to underlying variables representing the ability of each player.<br />
-		
-		<br />
-		Regards,<br />
-		Tuvok.nl Versatile Kolinahr WebServices
-      
-		</p>
-		<p>&nbsp;</p>
-    
-		<p class="links"> <a href="/" class="date">today</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="" class="author">wouter</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="#" class="comments">Comments disabled</a></p>
-	</div>
-
-	<div class="bottom"></div>
+	#{if frontPost} 
+	<!-- start latest post -->
+	    #{display-post post:frontPost, as:'home' /}
+	<!-- end latest post -->
+	#{/if}
+	
+	#{else}
+	    <div class="empty">
+	        There is currently nothing to read here.
+	    </div>
+	#{/else}
+   	<div class="bottom"></div>
 </div>
-<!-- end latest post -->
+

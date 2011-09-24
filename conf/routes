@@ -11,5 +11,9 @@ GET     /favicon.ico                            404
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
+# catch id's for actions befor plain action calls
+GET 	/{controller}/{action}/{id}				{controller}.{action}
+POST    /posts/{postId}/comments                Blog.postComment
+
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

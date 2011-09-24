@@ -1,0 +1,39 @@
+#{extends 'main.html' /}
+#{set title:'T.V.K. Blog page' /}
+
+
+
+#{if olderPosts.size()}
+<div id="latest-post" class="wide-post">
+	<h1 class="title">Older posts <span class="from">from this blog</span></h1>
+
+	<div class="entry">
+		<img src="@{'/public/images/pool.png'}" alt="" width="114" height="114" class="left" />
+		<p>
+    
+        #{list items:olderPosts, as:'oldPost'}
+            #{display-post post:oldPost, as:'teaser' /}
+        #{/list}
+		</p>
+		<p>&nbsp;</p>
+		  
+		<p class="links">
+			<a href="/" class="date">today</a>
+			 &nbsp;&nbsp;&nbsp;&nbsp; 
+			<a href="" class="author">new post</a>
+			 &nbsp;&nbsp;&nbsp;&nbsp; 
+			<a href="#" class="comments">
+			Comments disabled
+			</a>
+		</p>
+	</div>
+
+	<div class="bottom"></div>
+</div>
+    
+#{/if}
+#{else}
+<div class="empty">
+    There is currently nothing to read here.
+</div>
+#{/else}

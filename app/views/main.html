@@ -22,25 +22,28 @@ Released   : 20071007
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
         <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public/javascripts/jquery.tools-1.2.5.toolbox.expose.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
         #{get 'moreScripts' /}
 </head>
 <body>
 <!-- start header -->
 <div id="logo">
   <a href="/">
-  	<h1>T.V.K.</h1>
-  	<p>For a number of reasons</p>
+  	<h1>${tvkTitle}</h1>
+  	<p>${tvkBaseline}</p>
   </a>
 </div>
 
 <div id="menu">
         <ul>
-        
+        <!-- ${menuItem} -->
         <li><a class="navigation" href="http://www.tuvok.nl/blog/">Homepage</a></li>
-        <li class="current_page_item"><a class="navigation" href="/">Pool</a></li>
+        <li #{if menuItem == 'Pool'}class="current_page_item"#{/if}>
+	        <a title="${menuItem}" class="navigation" href="@{Application.index()}">Pool</a></li>
         <li><a title="Todos" class="navigation" href="http://www.tuvok.nl/todo/">Todos</a></li>
         <li><a title="Contact" class="navigation" href="http://www.tuvok.nl/contact/">Contact</a></li>
-        <li><a title="Blog" class="navigation" href="http://www.tuvok.nl/blog/list/">Blog</a></li>
+        <li #{if menuItem == 'Blog'}class="current_page_item"#{/if}>
+        	<a title="Blog" class="navigation" href="@{Blog.list}">Blog</a></li>
         
         </ul>
   

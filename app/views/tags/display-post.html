@@ -1,0 +1,87 @@
+*{ Display a post in one of these modes: 'full', 'home' or 'teaser' }*
+ 
+#{if _as != 'teaser'}
+	<h1 class="title"><a href="#">${_post.title}</a></h1>
+	#{if _as == 'full'}
+	<ul id="pagination">
+    #{if _post.previous()}
+        <li id="previous">
+            <a href="@{Blog.show(_post.previous().id)}">
+                ${_post.previous().title}
+            </a>
+        </li>
+    #{/if}
+    #{if _post.next()}
+        <li id="next">
+            <a href="@{Blog.show(_post.next().id)}">
+                ${_post.next().title}
+            </a>
+        </li>
+    #{/if}
+	</ul>
+	#{/if}
+
+	<div class="entry">
+		<img src="@{'/public/images/pool.png'}" alt="" width="114" height="114" class="left" />
+		<p>
+			${_post.content.nl2br()}
+		</p>
+		<p>&nbsp;</p>
+
+		<p class="links">
+			<a href="/" class="date">${_post.postedAt.format('MMM dd yyyy')}</a>
+			 &nbsp;&nbsp;&nbsp;&nbsp; 
+			<a href="" class="author">by ${_post.author.fullname}</a>
+			 &nbsp;&nbsp;&nbsp;&nbsp; 
+			<a href="#" class="comments">
+			#{if _as != 'home'}
+			&nbsp;|&nbsp; 
+			${_post.comments.size() ?: 'no'} 
+			comment${_post.comments.size().pluralize()}
+			#{if _post.comments}
+			    , latest by ${_post.comments[0].author}
+			#{/if}
+			#{/if}
+			#{else}
+			Comments disabled
+			#{/else}
+			</a>
+		</p>
+	</div>
+#{/if} 
+	#{if flash.success}
+	    <p class="success">${flash.success}</p>
+	#{/if}
+ 
+
+#{if _as == 'full'}
+    <div class="comments">
+        <h3>
+            ${_post.comments.size() ?: 'no'} 
+            comment${_post.comments.size().pluralize()}
+        </h3>
+        
+        #{list items:_post.comments, as:'comment'}
+            <div class="comment">
+                <div class="comment-metadata">
+                    <span class="comment-author">by ${comment.author},</span>
+                    <span class="comment-date">
+                        ${comment.postedAt.format('dd MMM yy')}
+                    </span>
+                </div>
+                <div class="comment-content">
+                    <div class="about">Detail: </div>
+                    ${comment.content.escape().nl2br()}
+                </div>
+            </div>
+        #{/list}
+        
+    </div>
+    
+#{/if}
+
+#{if _as == 'teaser'}<div class="post ${_as == 'teaser' ? 'teaser' : ''}"></div>
+
+<a href="@{Blog.show(_post.id)}">${_post.title}</a>
+#{/if}
+

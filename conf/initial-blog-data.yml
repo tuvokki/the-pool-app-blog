@@ -1,0 +1,84 @@
+# you describe your data using the YAML notation here
+# and then load them using Fixtures.load("data.yml")
+
+# User(bob):
+#   email: bob@gmail.com
+#   password: secret
+#   fullname: Bob
+# Test data
+
+User(henk):
+    email:          henk@gmail.com
+    password:       secret
+    fullname:       Henk
+    isAdmin:        true
+    
+User(jos):
+    email:          jos@gmail.com
+    password:       secret
+    fullname:       Jos    
+    
+Post(firstPost):
+    title:          A fullfledged, Elo-based ratingsystem for the GX Public pool competition will be here!
+    postedAt:       2011-09-01
+    author:         henk
+    content:        >
+                    The Elo rating system is a method for calculating the relative skill levels of players in two-player games such as chess.
+                    It is named after its creator Arpad Elo, a Hungarian-born American physics professor.
+
+                    Arpad Elo was a master-level chess player and an active participant in the United States Chess Federation (USCF) from its
+                    founding in 1939. The USCF used a numerical ratings system, devised by Kenneth Harkness, to allow members to track their
+                    individual progress in terms other than tournament wins and losses. The Harkness system was reasonably fair, but in some
+                    circumstances gave rise to ratings which many observers considered inaccurate. On behalf of the USCF, Elo devised a new
+                    system with a more statistical basis.
+                    
+                    Elo's system replaced earlier systems of competitive rewards with a system based on statistical estimation. Rating systems
+                    for many sports award points in accordance with subjective evaluations of the 'greatness' of certain achievements. For
+                    example, winning an important golf tournament might be worth an arbitrarily chosen five times as many points as winning a
+                    lesser tournament.
+
+                    A statistical endeavor, by contrast, uses a model that relates the game results to underlying variables representing the
+                    ability of each player.
+
+                    Regards,
+                    Tuvok.nl Versatile Kolinahr WebServices
+
+Post(secondPost):
+    title:          Just a test of The blog function of the POOl app
+    postedAt:       2011-09-23
+    author:         jos
+    content:        >
+                    Well, it's just a test.
+                    
+Post(henkPost):
+    title:          The MVC application
+    postedAt:       2011-09-23
+    author:         henk
+    content:        >
+                    A Play! application follows the MVC architectural pattern as applied to the 
+                    architecture of the Web.
+                    
+                    This pattern splits the application into separate layers: the Presentation 
+                    layer and the Model layer. The Presentation layer is further split into a 
+                    View and a Controller layer.
+                    
+Comment(c1):
+    author:         Guest
+    content:        >
+                    You are right !
+    postedAt:       2011-09-23
+    post:           henkPost
+    
+Comment(c2):
+    author:         Mike
+    content:        >
+                    I knew that ...
+    postedAt:       2011-09-23
+    post:           henkPost    
+    
+Comment(c3):
+    author:         Tom
+    content:        >
+                    This post is useless ?
+    postedAt:       2011-09-23
+    post:           secondPost    
