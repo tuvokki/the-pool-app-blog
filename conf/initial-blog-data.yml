@@ -12,17 +12,24 @@ User(henk):
     password:       secret
     fullname:       Henk
     isAdmin:        true
-    
+
 User(jos):
     email:          jos@gmail.com
     password:       secret
     fullname:       Jos    
-    
+
+User(wouter):
+    email:          tuvokki@gmail.com
+    password:       secret
+    fllname:        Wouter
+
 Post(firstPost):
-    title:          A fullfledged, Elo-based ratingsystem for the GX Public pool competition will be here!
+    title:          Elo-based ratingsystem
     postedAt:       2011-09-01
     author:         henk
     content:        >
+                    A fullfledged, Elo-based ratingsystem for the GX Public pool competition will be here!
+    
                     The Elo rating system is a method for calculating the relative skill levels of players in two-player games such as chess.
                     It is named after its creator Arpad Elo, a Hungarian-born American physics professor.
 
@@ -45,14 +52,14 @@ Post(firstPost):
 
 Post(secondPost):
     title:          Just a test of The blog function of the POOl app
-    postedAt:       2011-09-23
+    postedAt:       2011-09-02
     author:         jos
     content:        >
                     Well, it's just a test.
                     
 Post(henkPost):
     title:          The MVC application
-    postedAt:       2011-09-23
+    postedAt:       2011-09-03
     author:         henk
     content:        >
                     A Play! application follows the MVC architectural pattern as applied to the 
@@ -61,7 +68,58 @@ Post(henkPost):
                     This pattern splits the application into separate layers: the Presentation 
                     layer and the Model layer. The Presentation layer is further split into a 
                     View and a Controller layer.
-                    
+
+Post(tuvokPost):
+    title:          This is Tuvok.nl
+    postedAt:       2011-09-04
+    author:         wouter
+    content:        >
+                    This is T.V.K. A cross media, multi tennant, leading, innovative, award winning, cutting edge, real-time value justification. Our consumer appeal comes from Engagement Metrics, a Consumer Initiated Marketing system for downtrending on the emotional economy marketplace. No short term solution, no low-hanging fruits, no long tail visibility! Here @ T.V.K. we can garantee this work in progress as a business proof, recession proof and mature modeled Nexus One!
+
+                    Development is our middle name. In fact, the V in T.V.K. stands for versatile, with the A of Agile. We practice the waterfall method within Scrum. Our customer faced iteration-methodology has been buzzin' the industry, gaining momentum for the ultimate goal of T.V.K. as described in our motto:
+                    . . . be the number one reason! Yay!
+
+Post(missionPost):
+    title:          Reinvent mission-critical e-commerce
+    postedAt:       2011-09-05
+    author:         wouter
+    content:        >
+                    Here @T.V.K. we have a philosophy. All commerce is some digital brand of front-end convergence. This is obvious, and recognized by several industry leaders. However in the hybrid, or even multibrid, playing field which we call modern opportunities, a company has to create accelerated new-fangaled problems in order to stay on top op the competition.
+
+                    Time to unleash frictionless systems upon a new brand of scale wireless infrastructures. Everybody talks about positioning value-added e-markets, but nobody knows how to interpret this for mobile devices like the iPone, iPad or iPod. Smartphones converge systematized long-memory choices of companies to 'get closer to the customer', like we said in the '90's. And now we lost touch with reality, because we cannot see our customer anymore. The buyers in this diverging markets are transforming our next-generation deliverables. Either we are too close to the market, or our market shifted to internet cafe's, cityparks or just the street, where a shivering 23% of online sales take place nowadays.
+
+                    T.V.K. WebServices has the answer. We know how to synthesize global networks into engineering with proactive schemas. Any derivative nonstationary strict variable is a small but important chance to enhance front-end L-markets. So, don;t try to locate your customers, be their friends or create a social network. Deliver all those small delayered asset tracking disconnects into your online channels and create an efficent long-memory time-phase.
+
+                    Not only your online sales will go up, also the new, digitalized, intimacy will be recreated. Either on facebook, mySpace or the next hype. Remember, you are not a brand, you are a friend!
+
+Comment(c4):
+    author:         Jos
+    content:        >
+                    You are right !
+    postedAt:       2011-09-05
+    post:           missionPost
+
+Comment(c5):
+    author:         Mike
+    content:        >
+                    Very insightful story. Will you consider adopting me, oh Guru?
+    postedAt:       2011-09-06
+    post:           missionPost
+    
+Comment(c6):
+    author:         Tom
+    content:        >
+                    Mike, you are stupid
+    postedAt:       2011-09-06
+    post:           missionPost
+    
+Comment(c7):
+    author:         Guest
+    content:        >
+                    You are right !
+    postedAt:       2011-09-07
+    post:           missionPost
+    
 Comment(c1):
     author:         Guest
     content:        >
@@ -82,3 +140,73 @@ Comment(c3):
                     This post is useless ?
     postedAt:       2011-09-23
     post:           secondPost    
+
+Comment(c01):
+    author:         Wouter
+    content:        >
+                    Yep, quite
+    postedAt:       2011-09-23
+    post:           secondPost
+
+Comment(c02):
+    author:         Toon
+    content:        >
+                    Yep!
+    postedAt:       2011-09-23
+    post:           secondPost
+
+Comment(c03):
+    author:         Sjon
+    content:        >
+                    Quite
+    postedAt:       2011-09-23
+    post:           secondPost
+
+Comment(c04):
+    author:         Jos
+    content:        >
+                    Yep, quite
+    postedAt:       2011-09-23
+    post:           secondPost
+
+Comment(c05):
+    author:         Theo
+    content:        >
+                    Yep, quite
+    postedAt:       2011-09-23
+    post:           secondPost
+
+Comment(c06):
+    author:         Bob
+    content:        >
+                    Yep, quite, Alice sais also
+    postedAt:       2011-09-23
+    post:           secondPost
+
+Comment(c07):
+    author:         Mark
+    content:        >
+                    Yep, quite
+    postedAt:       2011-09-23
+    post:           secondPost
+
+Comment(c08):
+    author:         Hanske
+    content:        >
+                    Yep, absolutely
+    postedAt:       2011-09-23
+    post:           secondPost
+
+Comment(c09):
+    author:         Neo
+    content:        >
+                    Yes, quite useless
+    postedAt:       2011-09-23
+    post:           secondPost
+
+Comment(c10):
+    author:         Ben
+    content:        >
+                    Yepster
+    postedAt:       2011-09-23
+    post:           secondPost

@@ -1,6 +1,8 @@
 package controllers;
 
 import play.*;
+import play.cache.Cache;
+import play.libs.Images;
 import play.mvc.*;
 
 import java.util.*;
@@ -15,6 +17,13 @@ public class Application extends Controller {
             "order by postedAt desc"
         ).from(1).fetch(10);
         render(frontPost, olderPosts);
+    }
+    
+    public static void captcha(String id) {
+        Images.Captcha captcha = Images.captcha();
+        String code = captcha.getText("#E4EAFD");
+        Cache.set(id, code, "10mn");
+        renderBinary(captcha);
     }
     
     @Before
