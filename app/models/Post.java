@@ -13,16 +13,24 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import play.data.validation.MaxSize;
+import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
 public class Post extends Model {
+    @Required
+    @MaxSize(50)
 	public String title;
-	public Date postedAt;
+    @Required
+    public Date postedAt;
 
-	@Lob
+    @Required
+    @MaxSize(10000)
+    @Lob
 	public String content;
 
+    @Required
 	@ManyToOne
 	public User author;
 
@@ -77,5 +85,9 @@ public class Post extends Model {
 	public Post next() {
 		return Post.find("postedAt > ? order by postedAt asc", postedAt)
 				.first();
+	}
+	
+	public String toString() {
+		return "[" + id + "] " + title + " by " + author;
 	}
 }

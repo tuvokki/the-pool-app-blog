@@ -20,7 +20,8 @@ User(jos):
 User(wouter):
     email:          tuvokki@gmail.com
     password:       secret
-    fllname:        Wouter
+    fullname:       Wouter
+    isAdmin:        true
 
 Tag(play):
     name:           Play
