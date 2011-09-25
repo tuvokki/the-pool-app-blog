@@ -1,19 +1,30 @@
 #{extends 'main.html' /}
-#{set title:'T.V.K. Blog list' /}
+#{set title:'Posts tagged with ' + tag /}
 
 
-
-#{if olderPosts.size()}
+#{if posts.size()}
 <div id="latest-post" class="wide-post">
 	<h1 class="title">Older posts <span class="from">from this blog</span></h1>
 
 	<div class="entry">
 		<img src="@{'/public/images/pool.png'}" alt="" width="114" height="114" class="left" />
 		<p>
-    
-        #{list items:olderPosts, as:'oldPost'}
-            #{display-post post:oldPost, as:'teaser' /}
-        #{/list}
+		*{********* Title ********* }*
+		 
+		#{if posts.size() > 1}
+		   <h3>There are ${posts.size()} posts tagged '${tag}'</h3>  
+		#{/if} 
+		#{elseif posts}
+		    <h3>There is 1 post tagged '${tag}'</h3>  
+		#{/elseif}
+		#{else}
+		    <h3>No post tagged '${tag}'</h3>
+		#{/else}
+		 
+		*{********* Posts list *********}*
+        #{list items:posts, as:'post'}
+        	#{display-post post:post, as:'teaser' /}
+    	#{/list}
 		</p>
 		<p>&nbsp;</p>
 		  

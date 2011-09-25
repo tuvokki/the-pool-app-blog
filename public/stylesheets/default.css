@@ -212,6 +212,11 @@ hr {
 	background: url(/public/images/tvk/img08.gif) no-repeat left center;
 }
 
+.wide-post .links .tags {
+	padding-left: 20px;
+	background: url(/public/images/tvk/tag-icon.png) no-repeat left center;
+}
+
 .wide-post .links .author {
 	padding-left: 20px;
 	background: url(/public/images/tvk/img09.gif) no-repeat left center;
@@ -587,5 +592,10 @@ form label {
 
 #pagination #next:after {
     content: ' >>';
+	padding: 0px 10px 0px 0px;
+}
+
+/** Tags **/
+.post-tags {
 	padding: 0px 10px 0px 0px;
 }

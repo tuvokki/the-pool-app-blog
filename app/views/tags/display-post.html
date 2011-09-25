@@ -2,6 +2,7 @@
  
 #{if _as != 'teaser'}
 	<h1 class="title"><a href="#">${_post.title}</a></h1>
+	
 	#{if _as == 'full'}
 	<ul id="pagination">
     #{if _post.previous()}
@@ -46,6 +47,16 @@
 			Comments disabled
 			#{/else}
 			</a>
+			#{if _post.tags}
+			&nbsp;|&nbsp;
+		    <span class="tags">
+		    Tags:&nbsp;
+		        #{list items:_post.tags, as:'tag'}
+		            <a href="@{Blog.listTagged(tag.name)}">${tag}</a>${tag_isLast ? '' : ', '}
+		        #{/list}
+		    </span>
+			#{/if}
+
 		</p>
 	</div>
 #{/if} 

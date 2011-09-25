@@ -62,4 +62,9 @@ public class Blog extends Controller {
 				Play.configuration.getProperty("tvk.baseline"));
 		renderArgs.put("menuItem", Play.configuration.getProperty("menu.blog"));
 	}
+
+	public static void listTagged(String tag) {
+		List<Post> posts = Post.findTaggedWith(tag);
+		render(tag, posts);
+	}
 }

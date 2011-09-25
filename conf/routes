@@ -11,9 +11,13 @@ GET     /favicon.ico                            404
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 GET     /captcha                                Application.captcha
-# catch id's for actions befor plain action calls
-GET 	/{controller}/{action}/{id}				{controller}.{action}
+
+# posts
+GET     /posts/{<[0-9]+>id}             		Blog.show
+GET     /posts/{tag}                    		Blog.listTagged
 POST    /posts/{postId}/comments                Blog.postComment
 
+# catch id's for actions before plain action calls
+GET 	/{controller}/{action}/{id}				{controller}.{action}
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
