@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Radiance
+Description: Fixed-width design for blogs and small websites.
+Version    : 1.0
+Released   : 20071007
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl" lang="${lang}">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>#{get 'title' /}</title>
+        <meta charset="${_response_encoding}">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" media="screen" type="text/css" href="@{'/public/stylesheets/default.css'}" />
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public/javascripts/jquery.tools-1.2.5.toolbox.expose.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        #{get 'moreScripts' /}
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/crud.css'}" />
+</head>
+<!-- start header -->
+<div id="logo">
+  <a href="/">
+            <h1><a href="@{CRUD.index()}">&{'crud.title'}</a></h1>
+  	<p>Write, read and delete</p>
+  </a>
+</div>
+
+<div id="menu">
+        <ul>
+        <!-- ${menuItem} -->
+        <li #{if menuItem == 'Pool'}class="current_page_item"#{/if}>
+	        <a title="${menuItem}" class="navigation" href="@{Application.index()}">Pool</a></li>
+        <li #{if menuItem == 'Blog'}class="current_page_item"#{/if}>
+        	<a title="Blog" class="navigation" href="@{Blog.list}">Blog</a></li>
+        </ul>
+		<li class="${request.controller == 'Admin' ? 'selected' : ''}">
+		    <a href="@{Admin.index()}">My posts</a>
+		</li>
+		#{secure.check 'admin'}
+		    <li class="${request.controller == 'Posts' ? 'selected' : ''}">
+		        <a href="@{Posts.list()}">Posts</a>
+		    </li>
+		    <li class="${request.controller == 'Tags' ? 'selected' : ''}">
+		        <a href="@{Tags.list()}">Tags</a>
+		    </li>
+		    <li class="${request.controller == 'Comments' ? 'selected' : ''}">
+		        <a href="@{Comments.list()}">Comments</a>
+		    </li>
+		    <li class="${request.controller == 'Users' ? 'selected' : ''}">
+		        <a href="@{Users.list()}">Users</a>
+		    </li>
+		#{/secure.check}
+    </div>
+<!-- end header -->
+<hr />
+	
+	<div id="latest-post" class="wide-post">
+		<h1 class="title">Older posts <span class="from">from this blog</span></h1>
+		#{if request.actionMethod != 'index'}
+		            <div id="crudBreadcrumb">
+		                #{crud.navigation /}
+		            </div>
+		#{/if}
+		
+		#{if flash.success}
+		            <div class="crudFlash flashSuccess">
+		                ${flash.success}
+		            </div>
+		#{/if}
+		#{if flash.error || error}
+		            <div class="crudFlash flashError">
+		                ${error ?: flash.error}
+		            </div>
+		#{/if}
+	
+		<div class="entry">
+			<p>
+		        <div id="crudContent">
+					#{doLayout /}
+		        </div>
+			</p>
+			<p>&nbsp;</p>
+			  
+			<p class="links">
+				<a href="/" class="date">today</a>
+				 &nbsp;&nbsp;&nbsp;&nbsp; 
+				<a href="" class="author">new post</a>
+				 &nbsp;&nbsp;&nbsp;&nbsp; 
+				<a href="#" class="comments">
+				Comments disabled
+				</a>
+			</p>
+		</div>
+	
+		<div class="bottom"></div>
+	</div>
+
+    </body>
+</html>

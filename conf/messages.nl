@@ -12,3 +12,6 @@ email=Email-adres
 password=Paswoord
 fullname=Gehele naam
 isAdmin=Gebruiker is admin
+secure.username=Je email:
+secure.password=Je password:
+secure.signin=Log in

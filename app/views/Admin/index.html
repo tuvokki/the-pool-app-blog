@@ -1,0 +1,26 @@
+#{extends 'admin.html' /}
+
+#{set title:'Adminarea' /}
+
+
+<div id="latest-post" class="wide-post">
+	<h1 class="title">The main admin area</h1>
+
+	<div class="entry">
+		<img src="@{'/public/images/admin.png'}" alt="" width="114" height="114" class="left" />
+		<p>
+    		Welcome ${user}!
+    	</p>
+		<p>&nbsp;</p>
+		  
+		<p class="links">
+			<a href="/" class="date">today</a>
+			 &nbsp;&nbsp;&nbsp;&nbsp; 
+			<a href="" class="author">new post</a>
+			 &nbsp;&nbsp;&nbsp;&nbsp; 
+			<a class="comments" href="@{Secure.logout()}">Log out</a>
+		</p>
+	</div>
+
+	<div class="bottom"></div>
+</div>

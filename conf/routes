@@ -17,9 +17,12 @@ GET     /posts/{<[0-9]+>id}             		Blog.show
 GET     /posts/{tag}                    		Blog.listTagged
 POST    /posts/{postId}/comments                Blog.postComment
 
+# Administration
+GET     /admin/?                                Admin.index
 # Import CRUD routes
 *      /admin              						module:crud
-
+# Import Secure routes
+*       /                                       module:secure
 # catch id's for actions before plain action calls
 GET 	/{controller}/{action}/{id}				{controller}.{action}
 # Catch all
