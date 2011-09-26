@@ -17,6 +17,11 @@ GET     /posts/{<[0-9]+>id}             		Blog.show
 GET     /posts/{tag}                    		Blog.listTagged
 POST    /posts/{postId}/comments                Blog.postComment
 
+GET     /admin/myPosts/{id}                 	Admin.form
+GET     /admin/new                          	Admin.form
+POST    /admin/myPosts/{id}                 	Admin.save
+POST    /admin/new                          	Admin.save
+
 # Administration
 GET     /admin/?                                Admin.index
 # Import CRUD routes

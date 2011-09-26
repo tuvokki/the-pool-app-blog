@@ -227,6 +227,11 @@ hr {
 	background: url(/public/images/tvk/img10.gif) no-repeat left center;
 }
 
+.wide-post .links .newpost {
+	padding-left: 20px;
+	background: url(/public/images/tvk/newpost.gif) no-repeat left center;
+}
+
 .wide-post .links .feeds {
 	padding-left: 10px;
 	background: url(/public/images/tvk/img11.gif) no-repeat left center;
