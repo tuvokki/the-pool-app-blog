@@ -2,3 +2,9 @@
 
 require:
     - play
+
+# Import the crud module
+    - module.crud
+
+# Import the secure module
+    - module.secure
