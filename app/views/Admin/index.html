@@ -8,14 +8,15 @@
 
 	<div class="entry">
 		<img src="@{'/public/images/admin.png'}" alt="" width="114" height="114" class="left" />
+ 		<div class="level">
 		<h3>Welcome ${user}, <span>you have written ${posts.size() ?: 'no'} ${posts.pluralize('post', 'posts')} so far</span></h3>
- 
 		#{list items:posts, as:'post'}
 		    <p class="post ${post_parity}">
 		        <a href="@{Admin.form(post.id)}">${post.title}</a>
        			<!-- #{display-post post:post, as:'teaser' /} -->
 		    </p>
 		#{/list}
+		</div>
 		<p>&nbsp;</p>
 		  
 		<p class="links">
