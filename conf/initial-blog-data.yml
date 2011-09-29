@@ -1,23 +1,23 @@
 # you describe your data using the YAML notation here
 # and then load them using Fixtures.load("initial-blog-data.yml")
   
-User(bob):
+Blogger(bob):
     email:          bob@gmail.com
     password:       secret
     fullname:       Bob
 
-User(henk):
+Blogger(henk):
     email:          henk@gmail.com
     password:       secret
     fullname:       Henk
     isAdmin:        true
 
-User(jos):
+Blogger(jos):
     email:          jos@gmail.com
     password:       secret
     fullname:       Jos    
 
-User(wouter):
+Blogger(wouter):
     email:          tuvokki@gmail.com
     password:       secret
     fullname:       Wouter
