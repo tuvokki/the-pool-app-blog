@@ -2,7 +2,7 @@ import java.util.List;
 
 import models.Comment;
 import models.Post;
-import models.User;
+import models.Blogger;
 
 import org.junit.Test;
 
@@ -13,7 +13,7 @@ public class CommentsTest extends BasicModelsTest {
 	@Test
 	public void postComments() {
 		// Create a new user and save it
-		User bob = new User("bob@gmail.com", "secret", "Bob").save();
+		Blogger bob = new Blogger("bob@gmail.com", "secret", "Bob").save();
 
 		// Create a new post
 		Post bobPost = new Post(bob, "My first post", "Hello world").save();
@@ -44,7 +44,7 @@ public class CommentsTest extends BasicModelsTest {
 	@Test
 	public void useTheCommentsRelation() {
 		// Create a new user and save it
-		User bob = new User("bob@gmail.com", "secret", "Bob").save();
+		Blogger bob = new Blogger("bob@gmail.com", "secret", "Bob").save();
 
 		// Create a new post
 		Post bobPost = new Post(bob, "My first post", "Hello world").save();
@@ -54,7 +54,7 @@ public class CommentsTest extends BasicModelsTest {
 		bobPost.addComment("Tom", "I knew that !");
 
 		// Count things
-		assertEquals(1, User.count());
+		assertEquals(1, Blogger.count());
 		assertEquals(1, Post.count());
 		assertEquals(2, Comment.count());
 
@@ -70,7 +70,7 @@ public class CommentsTest extends BasicModelsTest {
 		bobPost.delete();
 
 		// Check that all comments have been deleted
-		assertEquals(1, User.count());
+		assertEquals(1, Blogger.count());
 		assertEquals(0, Post.count());
 		assertEquals(0, Comment.count());
 	}

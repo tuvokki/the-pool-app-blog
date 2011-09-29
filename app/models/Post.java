@@ -32,7 +32,7 @@ public class Post extends Model {
 
     @Required
 	@ManyToOne
-	public User author;
+	public Blogger author;
 
 	@OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
 	public List<Comment> comments;
@@ -40,7 +40,7 @@ public class Post extends Model {
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	public Set<Tag> tags;
 
-	public Post(User author, String title, String content) {
+	public Post(Blogger author, String title, String content) {
 		this.comments = new ArrayList<Comment>();
 		this.tags = new TreeSet<Tag>();
 		this.author = author;

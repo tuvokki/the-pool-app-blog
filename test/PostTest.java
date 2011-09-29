@@ -1,7 +1,7 @@
 import java.util.List;
 
 import models.Post;
-import models.User;
+import models.Blogger;
 
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ public class PostTest extends BasicModelsTest {
 	@Test
 	public void createPost() {
 		// Create a new user and save it
-		User bob = new User("bob@gmail.com", "secret", "Bob").save();
+		Blogger bob = new Blogger("bob@gmail.com", "secret", "Bob").save();
 
 		// Create a new post
 		new Post(bob, "My first post", "Hello world").save();

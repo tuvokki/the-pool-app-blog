@@ -17,9 +17,9 @@ public class Rating extends Model {
     public String story;
     
     @ManyToOne
-    public User author;
+    public Blogger author;
     
-    public Rating(User author, String title, String content) {
+    public Rating(Blogger author, String title, String content) {
         this.author = author;
         this.match = title;
         this.story = content;

@@ -13,13 +13,13 @@ public class Admin extends Controller {
 	@Before
 	static void setConnectedUser() {
 		if (Security.isConnected()) {
-			User user = User.find("byEmail", Security.connected()).first();
+			Blogger user = Blogger.find("byEmail", Security.connected()).first();
 			renderArgs.put("user", user.fullname);
 		}
 	}
 
 	public static void index() {
-		User user = User.find("byEmail", Security.connected()).first();
+		Blogger user = Blogger.find("byEmail", Security.connected()).first();
 		List<Post> posts = Post.find("byAuthor", user).fetch();
 		render(posts);
 	}
@@ -36,7 +36,7 @@ public class Admin extends Controller {
 	    Post post;
 	    if(id == null) {
 	        // Create post
-	        User author = User.find("byEmail", Security.connected()).first();
+	        Blogger author = Blogger.find("byEmail", Security.connected()).first();
 	        post = new Post(author, title, content);
 	    } else {
 	        // Retrieve post
