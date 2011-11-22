@@ -12,6 +12,16 @@ GET     /favicon.ico                            404
 GET     /public/                                staticDir:public
 GET     /captcha                                Application.captcha
 
+#ELO rating app
+GET     /games                                  RatingApp.index
+
+GET     /games/{<[0-9]+>id}             		RatingApp.show
+POST    /games/{id}/comments               		RatingApp.postComment
+GET     /games/create		                    RatingApp.form
+POST    /games/create                           RatingApp.create
+GET		/games/win								RatingApp.winForm
+POST	/games/win								RatingApp.winGame
+
 # posts
 GET     /posts/{<[0-9]+>id}             		Blog.show
 GET     /posts/{tag}                    		Blog.listTagged

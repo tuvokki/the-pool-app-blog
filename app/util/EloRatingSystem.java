@@ -64,10 +64,12 @@ public class EloRatingSystem {
 	 */
 	private EloRatingSystem (String game) {
 		this.game = game;			// Set game.
-		
+//		kFactors [1] = new KFactor (0, 1, 32);
+
+/*		
 		// Read k factor in from server properties
 //		String kFactorStr = ServerProperties.getInstance().getKFactor (game);
-		String kFactorStr = "32";
+		String kFactorStr = "32,2=4";
 		
 		if (kFactorStr != null) {
 			// Split each of the kFactor ranges up (kfactor1,factor2, etc)
@@ -94,6 +96,7 @@ public class EloRatingSystem {
 				kFactors [index++] = new KFactor (startIndex, endIndex, value);
 			}
 		}			
+*/
 	}
 	
 	/**

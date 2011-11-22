@@ -31,10 +31,11 @@ public class Blog extends Controller {
 			@Required(message = "Please type the code") String code,
 			String randomID) {
 		Post post = Post.findById(postId);
-		if (code != null && !code.equalsIgnoreCase("")) {
-			validation.equals(code, Cache.get(randomID)).message(
-					"Invalid code. Please type it again");
-		}
+		//TODO: re-enable captcha
+//		if (code != null && !code.equalsIgnoreCase("")) {
+//			validation.equals(code, Cache.get(randomID)).message(
+//					"Invalid code. Please type it again");
+//		}
 
 		if (validation.hasErrors()) {
 			render("Blog/show.html", post, randomID);

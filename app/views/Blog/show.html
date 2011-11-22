@@ -8,10 +8,11 @@
 	<!-- end latest post -->
 </div>
 <hr>
+
 <div id="comment-form" class="wide-comment">
 	<h1 class="title"><a href="#">Post a comment</a></h1>
 	
-	<div class="entry">
+<div class="entry">
 	#{form @Blog.postComment(post.id)}
 #{ifErrors}
     <p class="error">

@@ -20,8 +20,10 @@ public class Comment extends Model {
     public String content;
     
     @ManyToOne
-	@Required
     public Post post;
+
+    @ManyToOne
+    public Game game;
 
     public Comment(Post post, String author, String content) {
         this.post = post;
@@ -29,6 +31,13 @@ public class Comment extends Model {
         this.content = content;
         this.postedAt = new Date();
     }
+
+	public Comment(Game game, String author, String content) {
+        this.game = game;
+        this.author = author;
+        this.content = content;
+        this.postedAt = new Date();
+	}
  
 }
 

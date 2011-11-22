@@ -37,13 +37,13 @@ Released   : 20071007
 <div id="menu">
         <ul>
         <!-- ${menuItem} -->
-        <li><a class="navigation" href="http://www.tuvok.nl/blog/">Homepage</a></li>
         <li #{if menuItem == 'Pool'}class="current_page_item"#{/if}>
 	        <a title="${menuItem}" class="navigation" href="@{Application.index()}">Pool</a></li>
-        <li><a title="Todos" class="navigation" href="http://www.tuvok.nl/todo/">Todos</a></li>
-        <li><a title="Contact" class="navigation" href="http://www.tuvok.nl/contact/">Contact</a></li>
         <li #{if menuItem == 'Blog'}class="current_page_item"#{/if}>
         	<a title="Blog" class="navigation" href="@{Blog.list}">Blog</a></li>
+        </ul>
+        <li #{if menuItem == 'Game'}class="current_page_item"#{/if}>
+        	<a title="Game" class="navigation" href="@{RatingApp.index()}">Game</a></li>
         </ul>
   
 </div>
@@ -51,11 +51,4 @@ Released   : 20071007
 <hr />
         #{doLayout /}
     </body>
-    #{if menuItem == 'Blog'}
-    <ul id="tools">
-    <li>
-        <a href="@{Admin.index()}">Log in to write something</a>
-    </li>
-	</ul>
-	#{/if}
 </html>

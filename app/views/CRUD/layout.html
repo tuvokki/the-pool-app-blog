@@ -55,8 +55,14 @@ Released   : 20071007
 		    <li class="${request.controller == 'Comments' ? 'selected' : ''}">
 		        <a href="@{Comments.list()}">Comments</a>
 		    </li>
-		    <li class="${request.controller == 'Users' ? 'selected' : ''}">
-		        <a href="@{Users.list()}">Users</a>
+		    <li class="${request.controller == 'Bloggers' ? 'selected' : ''}">
+		        <a href="@{Bloggers.list()}">Bloggers</a>
+		    </li>
+		    <li class="${request.controller == 'Players' ? 'selected' : ''}">
+		        <a href="@{Players.list()}">Players</a>
+		    </li>
+		    <li class="${request.controller == 'Games' ? 'selected' : ''}">
+		        <a href="@{Games.list()}">Games</a>
 		    </li>
 		#{/secure.check}
     </div>
