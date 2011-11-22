@@ -1,0 +1,110 @@
+# you describe your data using the YAML notation here
+# and then load them using Fixtures.load("initial-game-data.yml")
+Player(steve):
+    name:       Steve
+    eloRating:  1435
+
+Player(john):
+    name:       John
+    eloRating:  1765
+
+Player(alan):
+    name:       Alan
+    eloRating:  1534
+
+Player(theo):
+    name:       Theo
+    eloRating:  1696
+
+Game(firstGame):
+    playerOne:    steve
+    playerTwo:    john
+    playedAt:     2011-09-06 14:58:19.0
+    winner:       steve
+
+Game(secondGame):
+    playerOne:    alan
+    playerTwo:    theo
+    playedAt:     2011-09-06 15:06:03.0
+    winner:       theo
+
+Game(thirdGame):
+    playerOne:    steve
+    playerTwo:    theo
+    playedAt:     2011-09-06 15:22:37.0
+    winner:       theo
+
+Game(fourthGame):
+    playerOne:    alan
+    playerTwo:    john
+    playedAt:     2011-09-07 15:13:48.0
+    winner:       alan
+
+Game(fifthGame):
+    playerOne:    alan
+    playerTwo:    steve
+    playedAt:     2011-09-07 15:47:18.0
+    winner:       alan
+
+Game(final):
+    playerOne:    alan
+    playerTwo:    theo
+    playedAt:     2011-09-08 14:50:00.0
+    winner:       alan
+
+Comment(gc4):
+    author:         Jos
+    content:        >
+                    Nice game Steve!
+    postedAt:       2011-09-06 15:04:00.0
+    game:           firstGame
+
+Comment(gc5):
+    author:         Mike
+    content:        >
+                    Did you really call that last shot?
+    postedAt:       2011-09-06 15:05:00.0
+    game:           firstGame
+    
+Comment(gc6):
+    author:         Tom
+    content:        >
+                    Mike, you are stupid
+    postedAt:       2011-09-06 15:06:00.0
+    game:           firstGame
+    
+Comment(gc7):
+    author:         Guest
+    content:        >
+                    Wow, brilliant play.
+    postedAt:       2011-09-06 15:10:03.0
+    game:           secondGame
+    
+Comment(gc1):
+    author:         Guest
+    content:        >
+                    That ball had some speed, wow!
+    postedAt:       2011-09-06 15:11:03.0
+    game:           secondGame
+    
+Comment(gc2):
+    author:         Mike
+    content:        >
+                    I knew that ...
+    postedAt:       2011-09-06 15:11:22.0
+    game:           secondGame    
+    
+Comment(gc3):
+    author:         Tom
+    content:        >
+                    but not that the window wasn't open
+    postedAt:       2011-09-06 15:13:03.0
+    game:           secondGame    
+
+Comment(gc8):
+    author:         Tom
+    content:        >
+                    Too bad for the window
+    postedAt:       2011-09-06 15:15:03.0
+    game:           secondGame    
+

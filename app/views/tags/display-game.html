@@ -1,0 +1,102 @@
+*{ Display a game in one of these modes: 'full' or 'list' }*
+ 
+#{if _as == 'list'}
+&nbsp;<span class="game-data">${_game.playedAt.format('MMM dd yyyy @ HH:mm')}</span><br />
+	#{if _game.winner == null}
+		<a href="@{RatingApp.show(_game.id)}">The game ${_game.playerOne} vs. ${_game.playerTwo} is still playing</a><br />
+	#{/if}
+	#{else}
+		<a href="@{RatingApp.show(_game.id)}">
+		#{if _game.winner == _game.playerOne}<b>#{/if}${_game.playerOne}#{if _game.winner == _game.playerOne}</b> won his game vs.#{/if}
+		#{if _game.winner == _game.playerTwo}lost his game vs. <b>#{/if}${_game.playerTwo}#{if _game.winner == _game.playerTwo}</b>#{/if}</a><br />
+	#{/else}
+#{/if}
+
+#{if _as == 'full'}
+	<h1 class="title"><a href="#">Game</a></h1>
+
+	#{if _as == 'full'}
+	<ul id="pagination">
+    #{if _game.previous()}
+        <li id="previous">
+            <a href="@{RatingApp.show(_game.previous().id)}">
+                ${_game.previous().title}previous
+            </a>
+        </li>
+    #{/if}
+    #{if _game.next()}
+        <li id="next">
+            <a href="@{RatingApp.show(_game.next().id)}">
+                next${_game.next().title}
+            </a>
+        </li>
+    #{/if}
+	</ul>
+	#{/if}
+
+	<div class="entry">
+		<img src="@{'/public/images/pool.png'}" alt="" width="114" height="114" class="left" />
+		<div class="game">
+			#{if _game.won}
+				#{display-player player:_game.playerOne, winner:_game.winner, align: 'left', as:'full' /}
+				<div class="vs">vs.</div>
+				#{display-player player:_game.playerTwo, winner:_game.winner, align: 'right', as:'full' /}
+			#{/if}
+			#{else}		#{form @wingame(game?.id, game?.playerOne)}
+			
+				#{display-player player:_game.playerOne, align: 'left', as:'full' /}#{/form}
+				<div class="vs">vs.</div>
+				#{display-player player:_game.playerTwo, align: 'right', as:'full' /}
+				<a href="@{RatingApp.winform(_game.id)}" class="setwinner">set winner</a>
+				
+			#{/else}
+		</div>
+		<p>&nbsp;</p>
+
+		<p class="links">
+			<a href="/" class="date">${_game.playedAt.format('MMM dd yyyy @ HH:mm')}</a>
+			&nbsp;|&nbsp; 
+			<a href="#" class="comments">
+			#{if _as != 'home'}
+			${_game.comments.size() ?: 'no'} 
+			comment${_game.comments.size().pluralize()}
+			#{if _game.comments}
+			    , latest by ${_game.comments[0].author}
+			#{/if}
+			#{/if}
+			#{else}
+			Comments disabled
+			#{/else}
+			</a>
+		</p>
+	</div>
+#{/if} 
+#{if flash.success}
+    <p class="success">${flash.success}</p>
+#{/if}
+ 
+
+#{if _as == 'full'}
+    <div class="comments">
+        <h3>
+            ${_game.comments.size() ?: 'no'} 
+            comment${_game.comments.size().pluralize()}
+        </h3>
+        
+        #{list items:_game.comments, as:'comment'}
+            <div class="comment">
+                <div class="comment-metadata">
+                    <span class="comment-author">by ${comment.author},</span>
+                    <span class="comment-date">
+                        ${comment.postedAt.format('dd MMM yy')}
+                    </span>
+                </div>
+                <div class="comment-content">
+                    ${comment.content.escape().nl2br()}
+                </div>
+            </div>
+        #{/list}
+        
+    </div>
+    
+#{/if}

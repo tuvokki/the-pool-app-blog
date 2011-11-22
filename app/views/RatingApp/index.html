@@ -1,0 +1,56 @@
+#{extends 'main.html' /}
+#{set title:'T.V.K. Pool gamez' /}
+
+#{set 'moreStyles'}
+    #{get 'moreStyles' /}
+    #{stylesheet 'nyroModal.css' /}
+#{/set}
+
+#{set 'moreScripts'}
+	#{get 'moreScripts' /}
+	#{script 'jquery.nyroModal.custom.min.js'/}
+	#{script 'jquery.nyroModal-ie6.min.js'/}
+#{/set}
+
+#{if games.size()}
+<div id="latest-post" class="wide-post">
+	<h1 class="title">Played <span class="from">games</span></h1>
+
+	<div class="entry">
+		<img src="@{'/public/images/pool.png'}" alt="" width="114" height="114" class="left" />
+		<p>
+		<h3>Welcome; already ${games.size() ?: 'no'} ${games.pluralize('game', 'games')} so far</span></h3>
+        #{list items:games, as:'game'}
+        	<p class="game ${game_parity}">
+        		#{display-game game:game, as:'list' /}
+            </p>
+        #{/list}
+		</p>
+		<p>&nbsp;</p>
+		  
+		<p class="links">
+			<a href="#" class="date">today</a>
+			 &nbsp;&nbsp;&nbsp;&nbsp; 
+			<a href="@{RatingApp.create()}" class="newpost">new game</a>
+			 &nbsp;&nbsp;&nbsp;&nbsp; 
+			<a href="#" class="comments">
+			Comments disabled
+			</a>
+		</p>
+	</div>
+
+	<div class="bottom"></div>
+</div>
+    
+#{/if}
+#{else}
+<div class="empty">
+    There is currently nothing to read here.
+</div>
+#{/else}
+
+<script type="text/javascript">
+$(function() {
+	  $('.newpost').nyroModal();
+});
+</script>

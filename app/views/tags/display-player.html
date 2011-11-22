@@ -1,0 +1,14 @@
+*{ Display a post in one of these modes: 'full', 'home' or 'teaser' }*
+ 
+#{if _as == 'teaser'}
+	${_player.name}
+#{/if}
+
+#{if _as == 'full'}
+	<div class="player${_align} #{if _winner != null && _winner.id == _player.id}winner#{/if}" id="player${_player.id}">
+		<ul>
+			<li>${_player.name}</li>
+			<li>${_player.eloRating}</li>
+		</ul>
+	</div>
+#{/if}

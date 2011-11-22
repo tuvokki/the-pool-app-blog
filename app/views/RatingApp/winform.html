@@ -1,0 +1,60 @@
+
+<div id="latest-post" class="wide-post">
+	<h1 class="title">And the winner is ...</h1>
+	<div class="entry">
+
+		#{form @wingame(game?.id, game?.playerOne)}
+		 
+		    #{ifErrors}
+		        <p class="error">
+		            Please correct these errors.
+		        </p>
+		    #{/ifErrors}
+		     <p>
+		     	#{field 'id'}
+		     	<input type="hidden" name="${field.name}" value="${game?.id}">
+		     	#{/field}
+		     </p>
+		     <p>
+		     	#{field 'winner'}
+		     	<input type="hidden" name="${field.name}" value="${game?.playerOne}">
+		     	#{/field}
+		     </p>
+
+		    <p>
+		     	#{field 'winner'}
+		        <input type="submit" value="${game?.playerOne}" />
+		     	#{/field}
+		    </p>
+		    
+		#{/form}
+		         or
+		#{form @wingame(game?.id, game?.playerTwo)}
+		 
+		    #{ifErrors}
+		        <p class="error">
+		            Please correct these errors.
+		        </p>
+		    #{/ifErrors}
+		     <p>
+		     	#{field 'id'}
+		     	<input type="hidden" name="${field.name}" value="${game?.id}">
+		     	#{/field}
+		     </p>
+		     <p>
+		     	#{field 'winner'}
+		     	<input type="hidden" name="${field.name}" value="${game?.playerTwo}">
+		     	#{/field}
+		     </p>
+
+		    <p>
+		     	#{field 'winner'}
+		         <input type="submit" value="${game?.playerTwo}" />
+		     	#{/field}
+		    </p>
+		    
+		#{/form}
+		  
+	</div>
+	<div class="bottom"></div>
+</div>

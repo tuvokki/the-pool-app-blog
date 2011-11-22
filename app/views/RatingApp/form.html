@@ -1,0 +1,54 @@
+
+<div id="latest-post" class="wide-post">
+	<h1 class="title">Create your game</h1>
+	<div class="entry">
+
+		#{form @create(game?.id)}
+		 
+		    #{ifErrors}
+		        <p class="error">
+		            Please correct these errors.
+		        </p>
+		    #{/ifErrors}
+		     
+		    <p>
+		        #{field 'playerOneName'}
+		        <label>Player one:</label>
+		        <input type="text" name="${field.name}" 
+		            value="${game?.playerOneName}" class="${field.errorClass}" />
+		        #{/field}
+		    </p>
+		 
+		    <p>
+		        #{field 'playerTwoName'}
+		        <label>Player two:</label>
+		        <input type="text" name="${field.name}" 
+		            value="${game?.playerTwoName}" class="${field.errorClass}" />
+		        #{/field}
+		    </p>
+		 
+<!-- 		    <p>
+		        #{field 'playedAt'}
+		        <label>Played date:</label>
+		        <input type="text" name="${field.name}" 
+		            value="${game?.playedAt}" class="${field.errorClass}" />
+		        #{/field}
+		    </p>
+		    
+		    <p>
+		        #{field 'winnerName'}
+		        <label>winner:</label>
+		        <input type="text" name="${field.name}" 
+		            value="${game?.winnerName}" class="${field.errorClass}" />
+		        #{/field}
+		    </p>
+		 
+ -->		    <p>
+		        <input type="submit" value="Create game" />
+		    </p>
+		    
+		#{/form}
+		  
+	</div>
+	<div class="bottom"></div>
+</div>

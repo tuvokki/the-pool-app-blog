@@ -1,0 +1,31 @@
+#{extends 'main.html' /}
+#{set title:'T.V.K. Game page' /}
+
+<div id="latest-post" class="wide-post">
+	<h1 class="title">
+	<a href="#">[title]</a>
+	</h1>
+	<div class="entry">
+		<!-- form -->
+		<p class="links">
+			<a href="/" class="date">today</a>
+			 &nbsp;&nbsp;|&nbsp;&nbsp; 
+		</p>
+	</div>
+	<div class="bottom"></div>
+	
+</div>
+<script type="text/javascript" charset="utf-8">
+    $(function() {         
+        // Expose the form 
+        $('form').click(function() { 
+            $('form').expose({api: true}).load(); 
+        }); 
+        
+        // If there is an error, focus to form
+        if($('form .error').size()) {
+            $('form').expose({api: true, loadSpeed: 0}).load(); 
+            $('form input[type=text]').get(0).focus();
+        }
+    });
+</script>

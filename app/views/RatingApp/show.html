@@ -1,0 +1,34 @@
+#{extends 'main.html' /}
+#{set title:'T.V.K. Game page' /}
+#{set 'moreStyles'}
+    #{get 'moreStyles' /}
+    #{stylesheet 'nyroModal.css' /}
+#{/set}
+
+#{set 'moreScripts'}
+	#{get 'moreScripts' /}
+	#{script 'jquery.nyroModal.custom.min.js'/}
+	#{script 'jquery.nyroModal-ie6.min.js'/}
+#{/set}
+
+<div id="latest-post" class="wide-post">
+	#{if game.id}
+	<!-- start latest game -->
+	    #{display-game game:game, as:'full' /}
+	<!-- end latest game -->
+</div>
+<hr>
+	#{/if}
+	
+	#{else}
+	    <div class="empty">
+	        There is currently nothing to read here.
+	    </div>
+	#{/else}
+#{comment-form game:game/}
+
+<script type="text/javascript">
+$(function() {
+	  $('.setwinner').nyroModal();
+});
+</script>
