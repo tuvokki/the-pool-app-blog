@@ -21,6 +21,7 @@ GET     /games/create		                    RatingApp.form
 POST    /games/create                           RatingApp.create
 GET		/games/win								RatingApp.winForm
 POST	/games/win								RatingApp.winGame
+GET		/players/list							RatingApp.playerList
 
 # posts
 GET     /posts/{<[0-9]+>id}             		Blog.show

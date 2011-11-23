@@ -71,6 +71,14 @@ public class RatingApp extends Controller {
 		Game game = Game.findById(id);
 		render(game);
 	}
+
+	public static void playerList()	{
+		renderArgs.put("menuItem", Play.configuration.getProperty("menu.rank"));
+
+		List<Player> players = Player.find("order by eloRating desc").from(0)
+				.fetch(10);
+		render(players);
+	}
 	
 	public static void postComment(Long id,
 			@Required(message = "Author is required") String author,
@@ -108,5 +116,4 @@ public class RatingApp extends Controller {
 				Play.configuration.getProperty("tvk.baseline"));
 		renderArgs.put("menuItem", Play.configuration.getProperty("menu.game"));
 	}
-
 }

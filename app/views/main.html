@@ -45,6 +45,9 @@ Released   : 20071007
         <li #{if menuItem == 'Game'}class="current_page_item"#{/if}>
         	<a title="Game" class="navigation" href="@{RatingApp.index()}">Game</a></li>
         </ul>
+        <li #{if menuItem == 'Rank'}class="current_page_item"#{/if}>
+        	<a title="List" class="navigation" href="@{RatingApp.playerList()}">Rank</a></li>
+        </ul>
   
 </div>
 <!-- end header -->
