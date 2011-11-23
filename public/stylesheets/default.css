@@ -628,6 +628,29 @@ form label {
     font-size: 8px;
 }
 
+.player {
+    left: 10px;
+    margin: 10px 0 0;
+    padding: 0 0 0 140px;
+}
+
+/* #game {
+	background: none repeat scroll 0 0 #FFF;
+}
+ */ 
+.player ul {
+	list-style-type: none;
+}
+
+.player-data {
+    color: #869AB1;
+    font-size: 50%;
+    text-align: right;
+    color: #555555;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 8px;
+}
+
 .setwinner {
     background: none repeat scroll 0 0 #00ff00;
     border-radius: 10px 10px 10px 10px;
