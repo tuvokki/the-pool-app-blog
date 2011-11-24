@@ -2,6 +2,7 @@
 <div id="latest-post" class="wide-post">
 	<h1 class="title">Create your game</h1>
 	<div class="entry">
+	For a new user just fill in a name, otherwise use the selectboxes.
 
 		#{form @create(game?.id)}
 		 
@@ -14,7 +15,7 @@
 		    <p>
 		        #{field 'playerOneName'}
 		        <label>Player one:</label>
-		        #{select 'players', items:players, valueProperty:'id', labelProperty:'name', value:'Player-5', class:"test", id:'select2' /}
+		        #{select 'playerOneName', items:players, valueProperty:'name', labelProperty:'name', value:'', class:"playerselect", id:'playerselect1' /}
 		        <input type="text" name="${field.name}" 
 		            value="${game?.playerOneName}" class="${field.errorClass}" />
 		        #{/field}
@@ -23,7 +24,7 @@
 		    <p>
 		        #{field 'playerTwoName'}
 		        <label>Player two:</label>
-		        #{select 'players', items:players, valueProperty:'id', labelProperty:'name', value:'Player-5', class:"test", id:'select2' /}
+		        #{select 'playerTwoName', items:players, valueProperty:'name', labelProperty:'name', value:'', class:"playerselect", id:'playerselect2' /}
 		        <input type="text" name="${field.name}" 
 		            value="${game?.playerTwoName}" class="${field.errorClass}" />
 		        #{/field}

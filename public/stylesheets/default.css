@@ -634,6 +634,12 @@ form label {
     padding: 0 0 0 140px;
 }
 
+.playerselect{
+    left: 10px;
+    margin: 10px 0 0;
+    padding: 0 0 0 0px;
+}
+
 /* #game {
 	background: none repeat scroll 0 0 #FFF;
 }
