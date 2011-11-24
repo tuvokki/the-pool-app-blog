@@ -1,0 +1,29 @@
+<div id="latest-post" class="wide-post">
+	<h1 class="title">Create your player</h1>
+	<div class="entry">
+	For a new user just fill in a name.
+
+		#{form @createPlayer(player?.id)}
+		 
+		    #{ifErrors}
+		        <p class="error">
+		            Please correct these errors.
+		        </p>
+		    #{/ifErrors}
+		     
+		    <p>
+		        #{field 'playerName'}
+		        <label>Player name:</label>
+		        <input type="text" name="${field.name}" 
+		            value="${player?.playerName}" class="${field.errorClass}" />
+		        #{/field}
+		    </p>
+			<p>
+		        <input type="submit" value="Create player" />
+		    </p>
+		    
+		#{/form}
+		  
+	</div>
+	<div class="bottom"></div>
+</div>
