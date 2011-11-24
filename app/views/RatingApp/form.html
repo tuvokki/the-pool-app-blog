@@ -14,6 +14,7 @@
 		    <p>
 		        #{field 'playerOneName'}
 		        <label>Player one:</label>
+		        #{select 'players', items:players, valueProperty:'id', labelProperty:'name', value:'Player-5', class:"test", id:'select2' /}
 		        <input type="text" name="${field.name}" 
 		            value="${game?.playerOneName}" class="${field.errorClass}" />
 		        #{/field}
@@ -22,6 +23,7 @@
 		    <p>
 		        #{field 'playerTwoName'}
 		        <label>Player two:</label>
+		        #{select 'players', items:players, valueProperty:'id', labelProperty:'name', value:'Player-5', class:"test", id:'select2' /}
 		        <input type="text" name="${field.name}" 
 		            value="${game?.playerTwoName}" class="${field.errorClass}" />
 		        #{/field}

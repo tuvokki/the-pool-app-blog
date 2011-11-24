@@ -59,7 +59,8 @@ public class RatingApp extends Controller {
 	}
 	
 	public static void form() {
-		render();
+		List<Player> players = Player.findAll(); 
+		render(players);
 	}
 	
 	public static void winform(Long id) {
