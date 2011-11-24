@@ -20,8 +20,8 @@ public class RatingApp extends Controller {
 	}
 	
 	public static void create(
-			@Required(message = "A game should at heast have players") String playerOneName, 
-			@Required(message = "A game should at heast have players") String playerTwoName, 
+			@Required(message = "A game should at least have players") String playerOneName, 
+			@Required(message = "A game should at least have players") String playerTwoName, 
 			Date playedAt, 
 			String winnerName) {
 		
@@ -61,6 +61,25 @@ public class RatingApp extends Controller {
 	public static void form() {
 		List<Player> players = Player.findAll(); 
 		render(players);
+	}
+	
+	public static void playerForm() {
+		render();
+	}
+	
+	public static void createPlayer(
+			@Required(message = "A player should at least have a name") String playerName) {
+		
+		Player player = new Player(playerName);
+		player.validateAndCreate();
+
+		if (validation.hasErrors()) {
+			render("RatingApp/playerForm.html", player);
+		}
+		
+		flash.success("Created a player called %s", playerName);
+
+		playerList();
 	}
 	
 	public static void winform(Long id) {

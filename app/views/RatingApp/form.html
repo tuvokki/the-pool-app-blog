@@ -2,7 +2,8 @@
 <div id="latest-post" class="wide-post">
 	<h1 class="title">Create your game</h1>
 	<div class="entry">
-	For a new user just fill in a name, otherwise use the selectboxes.
+	For a new game just choose two players use the selectboxes. 
+	<a title="CreatePLayer" class="navigation" href="@{RatingApp.playerList()}">Create a new player here</a></li>.
 
 		#{form @create(game?.id)}
 		 
@@ -16,8 +17,8 @@
 		        #{field 'playerOneName'}
 		        <label>Player one:</label>
 		        #{select 'playerOneName', items:players, valueProperty:'name', labelProperty:'name', value:'', class:"playerselect", id:'playerselect1' /}
-		        <input type="text" name="${field.name}" 
-		            value="${game?.playerOneName}" class="${field.errorClass}" />
+		        <!-- <input type="text" name="${field.name}" 
+		            value="${game?.playerOneName}" class="${field.errorClass}" /> -->
 		        #{/field}
 		    </p>
 		 
@@ -25,8 +26,8 @@
 		        #{field 'playerTwoName'}
 		        <label>Player two:</label>
 		        #{select 'playerTwoName', items:players, valueProperty:'name', labelProperty:'name', value:'', class:"playerselect", id:'playerselect2' /}
-		        <input type="text" name="${field.name}" 
-		            value="${game?.playerTwoName}" class="${field.errorClass}" />
+		        <!-- <input type="text" name="${field.name}" 
+		            value="${game?.playerTwoName}" class="${field.errorClass}" /> -->
 		        #{/field}
 		    </p>
 		 
