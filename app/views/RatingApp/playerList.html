@@ -14,12 +14,12 @@
 
 #{if players.size()}
 <div id="latest-post" class="wide-post">
-	<h1 class="title">Played <span class="from">players</span></h1>
+	<h1 class="title">&lt;GX&gt; <span class="from">stumpies</span></h1>
 
 	<div class="entry">
 		<img src="@{'/public/images/pool.png'}" alt="" width="114" height="114" class="left" />
 		<p>
-		<h3>Well this is the top ${players.size() ?: 'no'} of ${players.pluralize('player', 'players')}</span></h3>
+		<h3>Well this is the top ${players.size() ?: 'no'} of ${playerCount} ${players.pluralize('player', 'players')}</span></h3>
         #{list items:players, as:'player'}
         	<p class="player ${player_parity}">
         		#{display-player player:player, as:'list' /}

@@ -50,12 +50,23 @@
 				<a href="@{RatingApp.winform(_game.id)}" class="setwinner">set winner</a>
 				
 			#{/else}
+		<a href="#gamedetails" class="gameDetails">Game details</a>
+		<div id="gamedetails" style="display: none;">
+			<p>Game details:</p>
+			<p>Before this game ${_game.playerOne}<br />had an ELO-rating of ${_game.playerOneEloBefore}</p>
+			<p>After this game ${_game.playerOne}<br />has an ELO-rating of ${_game.playerOneEloAfter}</p>
+			<p>Before this game ${_game.playerTwo}<br />had an ELO-rating of ${_game.playerTwoEloBefore}</p>
+			<p>After this game ${_game.playerTwo}<br />has an ELO-rating of ${_game.playerTwoEloAfter}</p>
+			<p>playedAt = ${_game.playedAt}<br />
+		</div>
 		</div>
 		<p>&nbsp;</p>
 
 		<p class="links">
 			<a href="/" class="date">${_game.playedAt.format('MMM dd yyyy @ HH:mm')}</a>
 			&nbsp;|&nbsp; 
+			<a href="@{RatingApp.create()}" class="newpost">new game</a>
+			 &nbsp;&nbsp;|&nbsp;&nbsp; 
 			<a href="#" class="comments">
 			#{if _as != 'home'}
 			${_game.comments.size() ?: 'no'} 
@@ -100,3 +111,9 @@
     </div>
     
 #{/if}
+
+<script type="text/javascript">
+$(function() {
+  $('.gameDetails').nyroModal();
+});
+</script>

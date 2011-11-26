@@ -12,14 +12,19 @@
 	#{script 'jquery.nyroModal-ie6.min.js'/}
 #{/set}
 
-#{if games.size()}
 <div id="latest-post" class="wide-post">
+#{if games.size()}
 	<h1 class="title">Played <span class="from">games</span></h1>
 
 	<div class="entry">
 		<img src="@{'/public/images/pool.png'}" alt="" width="114" height="114" class="left" />
 		<p>
-		<h3>Welcome; already ${games.size() ?: 'no'} ${games.pluralize('game', 'games')} so far</span></h3>
+		#{if games.size() >= numberOfGames}
+		<h3>Already ${games.size() ?: 'no'} ${games.pluralize('game', 'games')} so far</span></h3>
+		#{/if}
+		#{else}
+		<h3>Showing last ${games.size() ?: 'no'} ${games.pluralize('game', 'games')} of ${numberOfGames}</span></h3>
+		#{/else}
         #{list items:games, as:'game'}
         	<p class="game ${game_parity}">
         		#{display-game game:game, as:'list' /}
@@ -38,16 +43,29 @@
 			</a>
 		</p>
 	</div>
+#{/if}
+#{else}
+	<h1 class="title">No <span class="from">games</span> yet</h1>
+	<div class="entry">
+		<img src="@{'/public/images/pool.png'}" alt="" width="114" height="114" class="left" />
+		<p>
+			Please create a game by clicking '<a href="@{RatingApp.create()}" class="newpost">new game</a>'.
+		</p>
+		<p>&nbsp;</p>
+		<p class="links">
+			<a href="#" class="date">today</a>
+			 &nbsp;&nbsp;&nbsp;&nbsp; 
+			<a href="@{RatingApp.create()}" class="newpost">new game</a>
+			 &nbsp;&nbsp;&nbsp;&nbsp; 
+			<a href="#" class="comments">
+			Comments disabled
+			</a>
+		</p>
+	</div>
+#{/else}
 
 	<div class="bottom"></div>
 </div>
-    
-#{/if}
-#{else}
-<div class="empty">
-    There is currently nothing to read here.
-</div>
-#{/else}
 
 <script type="text/javascript">
 $(function() {

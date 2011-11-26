@@ -16,7 +16,8 @@ public class RatingApp extends Controller {
 	public static void index() {
 		List<Game> games = Game.find("order by playedAt desc").from(0)
 				.fetch(10);
-		render(games);
+		int numberOfGames = (int) Game.count();
+		render(games, numberOfGames);
 	}
 	
 	public static void create(
@@ -95,9 +96,10 @@ public class RatingApp extends Controller {
 	public static void playerList()	{
 		renderArgs.put("menuItem", Play.configuration.getProperty("menu.rank"));
 
+		int playerCount = (int) Player.count();
 		List<Player> players = Player.find("order by eloRating desc").from(0)
 				.fetch(10);
-		render(players);
+		render(players, playerCount);
 	}
 	
 	public static void postComment(Long id,
