@@ -35,12 +35,14 @@ public class RatingApp extends Controller {
 			playerOne.validateAndCreate();
 		}
 		g.playerOne = playerOne;
+    g.playerOneEloBefore = playerOne.eloRating;
 
 		if (playerTwo == null) {
 			playerTwo = new Player(playerTwoName);
 			playerTwo.validateAndCreate();
 		}
 		g.playerTwo = playerTwo;
+    g.playerTwoEloBefore = playerTwo.eloRating;
 		
 		if (validation.hasErrors()) {
 			render("RatingApp/form.html", g);
